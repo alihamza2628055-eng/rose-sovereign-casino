@@ -1,1 +1,134 @@
+import React from "react";
 
+// Rose Sovereign Casino 3D Animated Website — Updated version
+// Incorporates background animation, button glow, proper FB/email, and Terms & Conditions
+
+const GAMES = [
+  { name: "ORION STAR", url: "https://start.orionstars.vip:8580/index.html" },
+  { name: "PANDA MASTER", url: "https://pandamaster.vip:8888/" },
+  { name: "JUWA", url: "https://www.juwa777.com/" },
+  { name: "MILKYWAY", url: "https://milkywayapp.xyz/" },
+  { name: "GAME VAULT", url: "https://gamevault999.com/" },
+  { name: "V BLINK", url: "https://www.vblink777.club/" },
+  { name: "GAME SLOTS", url: "https://www.gem77777.com/" },
+  { name: "CASINO IGNITE", url: "https://download.casinoignitee.vip/" },
+  { name: "FIRE KIRIN", url: "https://firekirin.com/download-fire-kirin-app.html" },
+  { name: "FIRE PHOENIX", url: "https://fpc-mob.com" },
+  { name: "VEGASSWEEP", url: "https://bitbetwin.cc/vegas-sweeps/" },
+  { name: "ULTRA PANDA", url: "https://www.ultrapanda.mobi/" },
+  { name: "X GAME", url: "https://www.egame99.club/" },
+  { name: "BLUE DRAGON", url: "https://app.bluedragon777.com/" },
+  { name: "MR ALL IN ONE", url: "https://www.mrallinone777.com" },
+  { name: "MAFIA", url: "https://dl.mafia77777.com/" },
+  { name: "GAME ROOM", url: "https://www.gameroom777.com/" },
+  { name: "RIVERSWEEPS", url: "https://bet777.eu/" },
+  { name: "MOOLAH", url: "https://moolah.vip:8888/" },
+  { name: "HIGHSTAKES", url: "https://www.highstakes.com/" },
+  { name: "HIGH ROLLER", url: "https://highrollersweep.cc/" },
+  { name: "NOBEL", url: "https://www.noble777.com" },
+  { name: "LUCKY STAR", url: "https://www.luckystars.games" },
+  { name: "BIGWINNER", url: "https://bigwplay.com" },
+  { name: "YOLO", url: "https://yolo777.game" },
+  { name: "PARA CASINO", url: "https://download.paracasino.net" },
+  { name: "CASH MACHINE", url: "https://www.cashmachine777.com/m" },
+  { name: "777 CLUB", url: "https://www.777club.best/" },
+  { name: "BIGBANG (BAG BAG)", url: "https://www.bigbangcasino.vegas" },
+  { name: "WIN WIN VEGAS", url: "https://winwinvegas777.com" },
+  { name: "SWEEP STAKE", url: "https://sweepstake.game/download" },
+  { name: "CASH VAULT", url: "https://download.cashvault777.com" }
+];
+
+const FACEBOOK_PAGE_LINK = "https://web.facebook.com/profile.php?id=61582774465285";
+const EMAIL = "Shalina2628055@gmail.com";
+
+function openMessengerPrefill(message) {
+  const encoded = encodeURIComponent(message);
+  const link = `${FACEBOOK_PAGE_LINK}?ref=${encoded}`;
+  window.open(link, "_blank");
+}
+
+export default function RoseSovereignCasino() {
+  const handleDownloadClick = (game, e) => {
+    const btn = e.currentTarget;
+    btn.classList.add("animate-glow");
+    setTimeout(() => btn.classList.remove("animate-glow"), 1000);
+    const hello = `Hello Rose Sovereign, I clicked the download for ${game.name}`;
+    openMessengerPrefill(hello);
+    setTimeout(() => window.open(game.url, "_blank"), 400);
+  };
+
+  return (
+    <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white font-sans overflow-hidden">
+      {/* Animated lady background (low opacity) */}
+      <div className="absolute inset-0 opacity-10 z-0 overflow-hidden">
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <source src="https://cdn.pixabay.com/video/2021/02/16/65927-511031739_large.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Header */}
+      <header className="relative z-10 py-6 px-6 flex items-center justify-between border-b border-gray-700 bg-black/50 backdrop-blur-sm">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-black text-xl font-bold animate-pulse">RS</div>
+          <div>
+            <h1 className="text-2xl font-extrabold tracking-wide">Rose Sovereign Casino</h1>
+            <p className="text-sm text-gray-300">Legit • Trusted • Premium Casino Experience</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <a href={`mailto:${EMAIL}`} className="px-3 py-2 border border-white rounded text-sm hover:bg-white hover:text-black transition">Email</a>
+          <a href={FACEBOOK_PAGE_LINK} target="_blank" rel="noreferrer" className="px-3 py-2 border border-white rounded text-sm hover:bg-white hover:text-black transition">Facebook Page</a>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative z-10 px-6 py-12 text-center">
+        <h2 className="text-4xl font-bold mb-2">Welcome to Rose Sovereign</h2>
+        <p className="text-gray-300 mb-8">Join the most legit and trusted casino network — play, win, and enjoy top-tier games with secure rewards.</p>
+        <a href={FACEBOOK_PAGE_LINK} target="_blank" rel="noreferrer" className="inline-block px-6 py-3 bg-white text-black font-semibold rounded-md hover:scale-105 transition">Join Our Page</a>
+      </section>
+
+      {/* Games Section */}
+      <main className="relative z-10 px-6 py-10 max-w-6xl mx-auto">
+        <h3 className="text-2xl font-bold mb-6 text-center">🎮 Our Legit Games</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {GAMES.map((g) => (
+            <button
+              key={g.name}
+              onClick={(e) => handleDownloadClick(g, e)}
+              className="bg-white/10 rounded-lg py-3 px-2 text-sm text-white border border-white/30 hover:border-white transition transform hover:scale-105 hover:shadow-lg hover:shadow-white/20 focus:outline-none"
+            >
+              {g.name}
+            </button>
+          ))}
+        </div>
+      </main>
+
+      {/* Terms & Conditions */}
+      <section className="relative z-10 bg-black/70 text-gray-300 text-sm px-6 py-10 max-w-4xl mx-auto rounded-lg mt-10 border border-gray-700">
+        <h4 className="text-lg font-semibold mb-2 text-white">Terms & Conditions</h4>
+        <p className="mb-3">Rose Sovereign Casino is a legitimate online entertainment platform. By accessing and playing any listed game, users confirm they are 18+ years old and comply with local laws. All transactions and activities must follow fair play rules. We do not guarantee winnings; gameplay is for entertainment purposes.</p>
+        <p className="mb-3">Players are advised to use official links only and avoid third-party sources. Our platform promotes responsible gaming — please play wisely and set limits to ensure fun and safety.</p>
+        <p className="font-semibold text-white">For inquiries: <a href={`mailto:${EMAIL}`} className="underline">{EMAIL}</a></p>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 text-center text-sm text-gray-400 py-6 border-t border-gray-800 mt-10">
+        © {new Date().getFullYear()} Rose Sovereign Casino — 100% Legitimate & Secure Platform
+      </footer>
+
+      {/* Glow animation */}
+      <style>{`
+        @keyframes glow {
+          0% { box-shadow: 0 0 5px #fff; }
+          50% { box-shadow: 0 0 20px #fff; }
+          100% { box-shadow: 0 0 5px #fff; }
+        }
+        .animate-glow {
+          animation: glow 1s ease-in-out;
+        }
+      `}</style>
+    </div>
+  );
+}
